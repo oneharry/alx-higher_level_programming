@@ -6,7 +6,7 @@ if __name__ == '__main__':
     if le == 1:
         print("0 arguments.")
     elif le == 2:
-        print("1 argument:")    
+        print("1 argument:")
     else:
         print("{} arguments:".format(le - 1))
     for i in range(1, le):
