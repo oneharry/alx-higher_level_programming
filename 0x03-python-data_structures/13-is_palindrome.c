@@ -4,13 +4,24 @@
 #include <stdio.h>
 
 /**
-  * freeptr - frees memory alocc pointers
-  * @p: pointer arg
-  * Return: void
+  * reverselist - reverse linked list
+  * @head: pointer to head of list
+  * Return: struct node
   */
-void freeptr(int *p)
+listint_t *reverselist(listint_t **head)
 {
-	free(p);
+	listint_t *current = *head;
+	listint_t *next, *prev = NULL;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*head = prev;
+	return (*head);
 }
 /**
   * is_palindrome - checks if a linked list is a palindrome
@@ -19,36 +30,38 @@ void freeptr(int *p)
   */
 int is_palindrome(listint_t **head)
 {
-	listint_t *thead = *head;
-	int arrlen, x, i = 0;
-	int *valptr;
+	listint_t *thead, *rev, *mid;
+	int x, len = 0;
 
-	if (*head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	valptr = malloc(1 * sizeof(int));
-	if (valptr == NULL)
-		return (0);
-	valptr[i] = thead->n;
-	while (thead->next)
+
+	thead = *head;
+	while (thead)
 	{
-		i++;
+		len++;
 		thead = thead->next;
-		valptr = realloc(valptr, i * sizeof(int));
-		valptr[i] = thead->n;
 	}
-	for (i = 0; valptr[i]; i++)
-	{}
-	arrlen = i - 2;
-	for (x = 0; x <= arrlen;)
+
+	thead = *head;
+	for (x = 0; x < (len / 2) - 1; x++)
+		thead = thead->next;
+
+	if ((len % 2) == 0 && thead->n != thead->next->n)
+		return (0);
+	thead = thead->next->next;
+	rev = reverselist(&thead);
+	mid = rev;
+
+	thead = *head;
+	while (rev)
 	{
-		if (valptr[x++] == valptr[arrlen--])
-			continue;
-		else
-		{
-			freeptr(valptr);
+		if (rev->n != thead->n)
 			return (0);
-		}
+		thead = thead->next;
+		rev = rev->next;
 	}
-	freeptr(valptr);
+	reverselist(&mid);
+
 	return (1);
 }
