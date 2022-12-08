@@ -1,19 +1,13 @@
 #!/usr/bin/python3
-""" Roman to Integer test file
-"""
-roman_to_int = __import__('12-roman_to_int').roman_to_int
+square_matrix_simple = __import__('0-square_matrix_simple').square_matrix_simple
 
-roman_number = "IV"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+matrix = [
+        [1, 2, 3],
+	    [4, 5, 6],
+	        [7, 8, 9]
+]
 
-roman_number = "XL"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+new_matrix = square_matrix_simple(matrix)
+print(new_matrix)
+print(matrix)
 
-roman_number = "CD"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "XC"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "CM"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
