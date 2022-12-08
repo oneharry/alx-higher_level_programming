@@ -7,7 +7,7 @@
   */
 size_t dlistint_len(const dlistint_t *h)
 {
-	const dlistin_t *tmp = h;
+	const dlistint_t *tmp = h;
 	size_t nodes = 0;
 
 	if (h->next == NULL)
