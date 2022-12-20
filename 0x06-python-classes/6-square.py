@@ -50,12 +50,11 @@ class Square:
         "prints to stdout the square with '#'"
 
         n = self.__size
-        if self.__position[1] < self.__position[0]:
-            pos = self.__position[0]
-        else:
-            pos = self.__position[1]
         if n == 0:
             print("")
+        for a in range(self.__position[1]):
+            print("")
+        pos = self.__position[0]
         for i in range(n):
             if pos >= 0:
                 for y in range(pos):
