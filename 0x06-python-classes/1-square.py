@@ -1,7 +1,12 @@
 #!/usr/bin/python3
+"""
+Create a class Sqaure
+"""
+
+
 class Square:
     """
-    This is to simply define a Sqaure class
+    Initialize with a private attribute size
     """
     def __init__(self, size):
         """
