@@ -11,7 +11,7 @@ class Square:
     def __init__(self, size=0):
         """
         initializing the class
-	size must be an integer >= 0
+        size must be an integer >= 0
         """
         try:
             if not isinstance(size, int):
