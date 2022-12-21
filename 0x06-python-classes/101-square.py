@@ -85,6 +85,7 @@ class Square:
         n = self.__size
         if n == 0:
             print("")
+            return
         for a in range(self.__position[1]):
             print("")
         pos = self.__position[0]
