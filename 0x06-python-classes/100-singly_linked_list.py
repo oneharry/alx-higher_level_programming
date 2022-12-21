@@ -39,7 +39,7 @@ class Node:
 class SinglyLinkedList:
 
     """ Class of singly linked list """
-    def __init__(self, head):
+    def __init__(self):
         """ initialize attributes """
         self.head = None
 
