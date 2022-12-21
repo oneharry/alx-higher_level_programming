@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import math
 """ Magic class implemented from bytecode"""
 
 
@@ -15,7 +16,7 @@ class MagicClass:
 
     def area(self):
         """ calculates the area """
-        return self.__radius * math.pi
+        return self.__radius ** math.pi
 
     def circumference(self):
         """ calculates the circumference """
