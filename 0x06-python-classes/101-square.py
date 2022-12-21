@@ -93,4 +93,5 @@ class Square:
                 print(" ", end="")
             for z in range(n):
                 print("#", end="")
-        print("")
+            print("")
+        return ""
