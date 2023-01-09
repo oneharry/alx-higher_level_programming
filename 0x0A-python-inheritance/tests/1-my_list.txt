@@ -1,0 +1,76 @@
+=============================
+Test cases for sorting list
+=============================
+
+This covers test cases for ``print_sorted()`` public instance of a class
+
+Number element
+==============
+
+``print_sorted()`` prints the sorted list of unordered numbers
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4]
+
+
+``print_sorted()`` prints list if only one element
+
+::
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(10)
+    >>> my_list.print_sorted()
+    [10]
+
+``print_sorted()`` works for multiple elements with same value
+
+::
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(2)
+    >>> my_list.append(2)
+    >>> my_list.append(2)
+    >>> my_list.append(2)
+    >>> my_list.print_sorted()
+    [2, 2, 2, 2]
+
+``print_sorted()`` works for negative integers
+
+::
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(2)
+    >>> my_list.append(-1)
+    >>> my_list.append(5)
+    >>> my_list.append(0)
+    >>> my_list.append(1)
+    >>> my_list.print_sorted()
+    [-1, 0, 1, 2, 5]
+
+``print_sorted()`` works for empty list
+
+::
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
+
+
+``print_sorted()`` works for exact integer floats
+::
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(2)
+    >>> my_list.append(4.0)
+    >>> my_list.append(1.0)
+    >>> my_list.append(3.0)
+    >>> my_list.print_sorted()
+    [1.0, 2, 3.0, 4.0]
