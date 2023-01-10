@@ -3,7 +3,11 @@
 
 
 def write_file(filename="", text=""):
+    """
+        Function writes to filename
+        Args:
+            text: the text content to be written
+    """
     with open(filename, 'w', encoding='utf-8') as f:
         n_text = f.write(text)
-        print(len(text))
         return (n_text)
