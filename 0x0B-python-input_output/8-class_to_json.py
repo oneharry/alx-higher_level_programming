@@ -9,4 +9,4 @@ def class_to_json(obj):
         Args:
             obj: object instance of a class
     """
-    return json.dumps(obj.__dict__)
+    return obj.__dict__
