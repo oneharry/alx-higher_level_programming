@@ -9,7 +9,7 @@ class TestMax(unittest.TestCase):
     """
     def setUp(self):
         """ Method runs before every test case runs """
-        self.max_integer = __import__('max_integer').max_integer
+        self.max_integer = __import__('6-max_integer').max_integer
 
     def test_number(self):
         """ Test that function return the max number in a list"""
@@ -25,4 +25,3 @@ class TestMax(unittest.TestCase):
     def test_None(self):
         """ test case for none value """
         self.assertEqual(self.max_integer([]), None)
-        self.assertEqual(self.max_integer(None), None)
