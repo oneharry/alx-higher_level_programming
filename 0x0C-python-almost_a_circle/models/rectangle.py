@@ -15,18 +15,22 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Initialize an instance of the class Rectangle"""
         try:
-            if width is None or height is None:
-                raise ValueError("width and height must be a positive int!")
-            if type(width) is not float and type(width) is not\
-                    int or width < 0:
-                raise TypeError("width must be positive int!")
-            if type(height) is not float and type(height) is not\
-                    int or height < 0:
-                raise TypeError("height must be a positive int")
-            if type(x) is not float and type(x) is not int:
-                raise TypeError("x must be an int")
-            if type(y) is not float and type(y) is not int:
-                raise TypeError("y must be an int")
+            if type(width) is not int:
+                raise TypeError("width must be an integer")
+            if type(height) is not int:
+                raise TypeError("height must be an integer")
+            if type(x) is not int:
+                raise TypeError("x must be an integer")
+            if type(y) is not int:
+                raise TypeError("y must be an integer")
+            if width <= 0:
+                raise ValueError("width must be > 0")
+            if height <= 0:
+                raise ValueError("height must be > 0")
+            if x < 0:
+                raise ValueError("x must be >= 0")
+            if y < 0:
+                raise ValueError("y must be >= 0")
             self.__width = width
             self.__height = height
             self.__x = x
@@ -46,12 +50,11 @@ class Rectangle(Base):
     def width(self, width):
         """ Sets the value of width attr"""
         try:
-            if type(width) is not float and type(width) is not int:
-                raise TypeError("width must be positive integers!")
-            elif width < 0:
-                raise ValueError("width must be positive integers!")
-            else:
-                self.__width = width
+            if type(width) is not int:
+                raise TypeError("width must be an integer")
+            if width <= 0:
+                raise ValueError("width must be > 0")
+            self.__width = width
         except (TypeError, ValueError) as exc:
             print(str(exc))
             raise
@@ -65,10 +68,10 @@ class Rectangle(Base):
     def height(self, height):
         """ Sets the value of height attr """
         try:
-            if type(height) is not float and type(height) is not int:
-                raise TypeError("height must be positive integers!")
-            elif height < 0:
-                raise ValueError("height must be positive integers!")
+            if type(height) is not int:
+                raise TypeError("height must be an integer")
+            if height <= 0:
+                raise ValueError("height must be > 0")
             else:
                 self.__height = height
         except (ValueError, TypeError) as exc:
@@ -86,10 +89,11 @@ class Rectangle(Base):
             Sets the value of x attribute
         """
         try:
-            if type(x) is not float and type(x) is not int:
+            if type(x) is not int:
                 raise TypeError("x must be an integer")
-            else:
-                self.__x = x
+            if x < 0:
+                raise ValueError("x must be >= 0")
+            self.__x = x
         except TypeError as exc:
             print(str(exc))
             raise
@@ -105,10 +109,29 @@ class Rectangle(Base):
             Sets the value of y attribute
         """
         try:
-            if type(y) is not float and type(y) is not int:
+            if type(y) is not int:
                 raise TypeError("y must be an integer")
-            else:
-                self.__y = y
+            if y < 0:
+                raise ValueError("y must be >= 0")
+            self.__y = y
         except TypeError as exc:
             print(str(exc))
             raise
+
+    def area(self):
+        """
+            Function calculates the area of class instance
+            Returns the product of height and width
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """ Prints the character # to stdout
+            height and width of instance
+        """
+        w = self.__width
+        h = self.__height
+        for i in range(h):
+            for j in range(w):
+                print("#", end="")
+            print()

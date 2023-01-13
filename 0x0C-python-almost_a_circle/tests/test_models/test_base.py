@@ -2,9 +2,8 @@
 import unittest
 from models.base import Base
 
+
 class TestBase(unittest.TestCase):
-
-
     def test_create_Base(self):
         self.a = Base()
         self.assertIs(type(self.a), Base)
