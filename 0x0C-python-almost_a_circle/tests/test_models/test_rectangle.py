@@ -234,3 +234,6 @@ class TestRectangle(unittest.TestCase):
         self.a = Rectangle(4, 3)
         self.a.display()
         self.assertEqual(stdout.getvalue(), disp)
+
+    def test_str(self):
+        self.a = Rectangle(3, 1, 8, 2, 11)

@@ -3,6 +3,7 @@
     of class Base
 """
 from models.base import Base
+import json
 
 
 class Rectangle(Base):
@@ -131,7 +132,55 @@ class Rectangle(Base):
         """
         w = self.__width
         h = self.__height
+        y = self.__y
+        x = self.__x
+        if y > 0:
+            for a in range(y):
+                print()
         for i in range(h):
+            if x > 0:
+                for b in range(x):
+                    print(" ", end="")
             for j in range(w):
                 print("#", end="")
             print()
+
+    def __str__(self):
+        """ Overriding the special __str__ function"""
+        return ("[{}] ({}) {}/{} - {}/{}".format(
+                self.__class__.__name__, self.id,
+                self.__x, self.__y, self.__width, self.__height))
+
+    def update(self, *args, **kwargs):
+        """
+            Function takes in variable arguments and updates
+            Instance attributes are updated
+            Args:
+                *args: Variable arguments
+        """
+        try:
+            if not args or args == ():
+                for key, val in kwargs.items():
+                    if key is "id":
+                        self.id = val
+                    if key is "width":
+                        self.width = val
+                    if key is "height":
+                        self.height = val
+                    if key is "x":
+                        self.x = val
+                    if key is "y":
+                        self.y = val
+            elif args:
+                le = len(args)
+                self.id = args[0]
+                if le > 1:
+                    self.width = args[1]
+                if le > 2:
+                    self.height = args[2]
+                if le > 3:
+                    self.x = args[3]
+                if le > 4:
+                    self.y = args[4]
+        except Exception:
+            raise
