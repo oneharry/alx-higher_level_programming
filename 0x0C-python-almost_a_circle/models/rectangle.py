@@ -161,15 +161,15 @@ class Rectangle(Base):
         try:
             if not args or args == ():
                 for key, val in kwargs.items():
-                    if key is "id":
+                    if key == "id":
                         self.id = val
-                    if key is "width":
+                    if key == "width":
                         self.width = val
-                    if key is "height":
+                    if key == "height":
                         self.height = val
-                    if key is "x":
+                    if key == "x":
                         self.x = val
-                    if key is "y":
+                    if key == "y":
                         self.y = val
             elif args:
                 le = len(args)
