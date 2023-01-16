@@ -57,7 +57,6 @@ class Rectangle(Base):
                 raise ValueError("width must be > 0")
             self.__width = width
         except (TypeError, ValueError) as exc:
-            print(str(exc))
             raise
 
     @property
@@ -76,7 +75,6 @@ class Rectangle(Base):
             else:
                 self.__height = height
         except (ValueError, TypeError) as exc:
-            print(str(exc))
             raise
 
     @property
@@ -96,7 +94,6 @@ class Rectangle(Base):
                 raise ValueError("x must be >= 0")
             self.__x = x
         except TypeError as exc:
-            print(str(exc))
             raise
 
     @property
@@ -116,7 +113,6 @@ class Rectangle(Base):
                 raise ValueError("y must be >= 0")
             self.__y = y
         except TypeError as exc:
-            print(str(exc))
             raise
 
     def area(self):
@@ -162,6 +158,9 @@ class Rectangle(Base):
             if not args or args == ():
                 for key, val in kwargs.items():
                     if key == "id":
+                        if val is None:
+                            self.__init__(self.width, self.height, self.x,
+                                    self.y)
                         self.id = val
                     if key == "width":
                         self.width = val
@@ -173,6 +172,8 @@ class Rectangle(Base):
                         self.y = val
             elif args:
                 le = len(args)
+                if args[0] is None:
+                    self.__init__(self.width, self.height, self.x, self.y)
                 self.id = args[0]
                 if le > 1:
                     self.width = args[1]
@@ -184,3 +185,13 @@ class Rectangle(Base):
                     self.y = args[4]
         except Exception:
             raise
+
+    def to_dictionary(self):
+        """ Returns the dict representation of a Rectangle obj"""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
