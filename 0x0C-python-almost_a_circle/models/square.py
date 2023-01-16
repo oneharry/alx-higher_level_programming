@@ -38,25 +38,33 @@ class Square(Rectangle):
             *args: variable arguments
             **kwargs: keyword variable arguments
         """
-        if not args and args == ():
-            for key, val in kwargs.items():
-                if key == "id":
-                    self.id = val
-                elif key == "size":
-                    self.size = val
-                elif key == "x":
-                    self.x = val
-                elif key == "y":
-                    self.y = val
-        elif args and len(kwargs):
-            le = len(args)
-            self.id = args[0]
-            if le > 1:
-                self.size = args[1]
-            if le > 2:
-                self.x = args[2]
-            if le > 3:
-                self.y = args[3]
+        try:
+            if not args and args == ():
+                for key, val in kwargs.items():
+                    if key == "id":
+                        if val is None:
+                            self.__init__(self.width, self.height, self.x,
+                                          self.y)
+                        self.id = val
+                    elif key == "size":
+                        self.size = val
+                    elif key == "x":
+                        self.x = val
+                    elif key == "y":
+                        self.y = val
+            elif args and len(kwargs):
+                le = len(args)
+                if args[0] is None:
+                    self.__init__(self.width, self.height, self.x, self.y)
+                self.id = args[0]
+                if le > 1:
+                    self.size = args[1]
+                if le > 2:
+                    self.x = args[2]
+                if le > 3:
+                    self.y = args[3]
+        except Exception:
+            raise
 
     def to_dictionary(self):
         """
