@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Define a class Base with only init func"""
 import json
+import csv
 
 
 class Base:
@@ -81,5 +82,43 @@ class Base:
             with open(filename, 'r', encoding='utf-8') as f:
                 list_dict = Base.from_json_string(f.read())
                 return [cls.create(**dic) for dic in list_dict]
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+            Class method 
+            Serializes CSV file.
+            File name is <Class name>.csv
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline="") as f:
+            if list_objs == [] or list_objs is None:
+                f.write([])
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Class method
+            Deserialzes a csv file
+        """
+        try:
+            with open(cls.__name__ + ".csv", 'r') as f:
+                if cls.__name__ == "Rectangle":
+                    field = ["id", "width", "height", "x", "y"]
+                else:
+                    field = ["id", "size", "x", "y"]
+                list_dic = csv.DictReader(f, fieldnames=field)
+                dic = [dict([key, int(val)] for key, val in d.items())
+                        for d in list_dic]
+                return [cls.create(**dic) for dic in list_dic]
         except IOError:
             return []
