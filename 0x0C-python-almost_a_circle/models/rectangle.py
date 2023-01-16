@@ -160,7 +160,7 @@ class Rectangle(Base):
                     if key == "id":
                         if val is None:
                             self.__init__(self.width, self.height, self.x,
-                                    self.y)
+                                          self.y)
                         self.id = val
                     if key == "width":
                         self.width = val

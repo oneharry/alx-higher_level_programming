@@ -40,7 +40,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """
-            A class method 
+            A class method
             Writes the JSON representation of object lists to a filr
             Write to filename <Class name>.json
         """
@@ -88,7 +88,7 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """
-            Class method 
+            Class method
             Serializes CSV file.
             File name is <Class name>.csv
         """
@@ -118,7 +118,7 @@ class Base:
                     field = ["id", "size", "x", "y"]
                 list_dic = csv.DictReader(f, fieldnames=field)
                 dic = [dict([key, int(val)] for key, val in d.items())
-                        for d in list_dic]
+                       for d in list_dic]
                 return [cls.create(**dic) for dic in list_dic]
         except IOError:
             return []

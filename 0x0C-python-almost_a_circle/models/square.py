@@ -31,32 +31,32 @@ class Square(Rectangle):
         self.width = size
         self.height = size
 
-def update(self, *args, **kwargs):
-    """
-        Functions update the value of object attributes
-        Args:
+    def update(self, *args, **kwargs):
+        """
+            Functions update the value of object attributes
+            Args:
             *args: variable arguments
             **kwargs: keyword variable arguments
-    """
-    if not args and args == ():
-        for key, val in kwargs.items():
-            if key == "id":
-                self.id = val
-            elif key == "size":
-                self.size = val
-            elif key == "x":
-                self.x = val
-            elif key == "y":
-                self.y = val
-    elif args and len(kwargs):
-        le = len(args)
-        self.id = args[0]
-        if le > 1:
-            self.size = args[1]
-        if le > 2:
-            ().x = args[2]
-        if le > 3:
-            self.y = args[3]
+        """
+        if not args and args == ():
+            for key, val in kwargs.items():
+                if key == "id":
+                    self.id = val
+                elif key == "size":
+                    self.size = val
+                elif key == "x":
+                    self.x = val
+                elif key == "y":
+                    self.y = val
+        elif args and len(kwargs):
+            le = len(args)
+            self.id = args[0]
+            if le > 1:
+                self.size = args[1]
+            if le > 2:
+                self.x = args[2]
+            if le > 3:
+                self.y = args[3]
 
     def to_dictionary(self):
         """
@@ -65,6 +65,6 @@ def update(self, *args, **kwargs):
         return {
             "id": self.id,
             "size": self.width,
-             "x": self.x,
+            "x": self.x,
             "y": self.y
         }
