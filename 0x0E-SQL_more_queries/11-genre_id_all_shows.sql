@@ -1,4 +1,6 @@
 -- Lists all shows contained in the database hbtn_0d_tvshows
-SELECT tv_shows.title AS 'title', IFNULL(tv_show_genres.genre_id, 'NULL') AS 'genre_id'
-  FROM tv_shows, tv_show_genres
- ORDER BY (tv_shows.title, tv_show_genres.genre_id);
+SELECT s.`title`, g.`genre_id`
+  FROM `tv_shows` AS s
+       LEFT JOIN `tv_show_genres` AS g
+       ON s.`id` = g.`show_id`
+ ORDER BY s.`title`, g.`genre_id`;

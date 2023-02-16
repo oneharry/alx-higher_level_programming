@@ -8,4 +8,3 @@ SELECT t.`title`
        ON g.`id` = s.`genre_id`
        WHERE g.`name` = "Comedy"
  ORDER BY t.`title`;
-
