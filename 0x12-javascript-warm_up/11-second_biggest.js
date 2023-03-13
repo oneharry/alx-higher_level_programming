@@ -1,7 +1,7 @@
 #!/usr/bin/node
 /* prints the second biggest integer */
 const args = process.argv;
-if (args.length < 3) {
+if (args.length <= 3) {
   console.log(0);
 } else {
   let i; const arr = [];
