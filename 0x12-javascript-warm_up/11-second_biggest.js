@@ -8,5 +8,5 @@ if (args.length <= 3) {
   for (i = 2; i < args.length; i++) {
     arr.push(args[i]);
   }
-  console.log(arr.sort()[arr.length - 2]);
+  console.log(arr.sort((a, b) => a - b)[arr.length - 2]);
 }
