@@ -2,8 +2,8 @@
 class Rectangle {
   constructor (w, h) {
     if (Number(w) > 0 && Number(h) > 0) {
-      this.height = h;
       this.width = w;
+      this.height = h;
     }
   }
 
@@ -12,11 +12,7 @@ class Rectangle {
     const w = this.width;
     let i, j;
     for (i = 0; i < h; i++) {
-      let space = '';
-      for (j = 0; j < w; j++) {
-        space += 'X';
-      }
-      console.log(space);
+      console.log('X'.repeat(w));
     }
   }
 }
