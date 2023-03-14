@@ -1,8 +1,4 @@
 #!/usr/bin/node
-const myObject = {
-  type: 'object',
-  value: 12
+module.exports = function () {
+  myVar = 333;
 };
-console.log(myObject);
-myObject.value = 89;
-console.log(myObject);
