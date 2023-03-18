@@ -8,6 +8,6 @@ if __name__ == "__main__":
     arg = sys.argv
     conn = MySQLdb.connect(user=arg[1], passwd=arg[2], db=arg[3])
     curr = conn.cursor()
-    curr.execute("SLECT * FROM states ORDER BY states.id ASC")
+    curr.execute("SELECT * FROM `states`")
     for i in curr.fetchall():
         print(i)
