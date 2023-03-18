@@ -11,6 +11,6 @@ if __name__ == "__main__":
     arg = sys.argv
     conn = MySQLdb.connect(user=arg[1], passwd=arg[2], db=arg[3])
     curr = conn.cursor()
-    curr.execute("SELECT * FROM states WHERE states.name LIKE '%{}%'".format(arg[4]))
+    curr.execute("SELECT * FROM states WHERE name LIKE '%{}%'".format(arg[4]))
     for i in curr.fetchall():
         print(i)
