@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Module prints all cities in database
+""" Module takes in name as argument and lists all
+    cities of that state
 """
 
 import sys
@@ -9,10 +10,12 @@ if __name__ == "__main__":
     arg = sys.argv
     conn = MySQLdb.connect(user=arg[1], passwd=arg[2], db=arg[3])
     curr = conn.cursor()
-    curr.execute("SELECT cities.id, cities.name, states.name\
+    curr.execute("SELECT *\
                  FROM cities\
                  INNER JOIN states\
-                 ON cities.id = states.id\
-                 ORDER BY cities.id")
+                 ON cities.id = states.id")
+    my_list = []
     for i in curr.fetchall():
-        print(i)
+        if (i[4] == arg[4]):
+            my_list.append(i[2])
+    print(", ".join(my_list))
