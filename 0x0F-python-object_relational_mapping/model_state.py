@@ -7,9 +7,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
-
-db_url = 'sqlite:///db.sqlite'
-engine = create_engine(db_url)
+from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 

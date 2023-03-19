@@ -13,7 +13,8 @@ if __name__ == "__main__":
     curr.execute("SELECT *\
                  FROM cities\
                  INNER JOIN states\
-                 ON cities.id = states.id")
+                 ON cities.states_id = states.id\
+		 ORDER BY cities.id")
     my_list = []
     for i in curr.fetchall():
         if (i[4] == arg[4]):
