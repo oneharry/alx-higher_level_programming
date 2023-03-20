@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Module definition of a class State
-    cities of that state
+"""Module adds state object Louisiana to the DB
 """
 
 from sqlalchemy import create_engine
@@ -16,8 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    s = session.query(State).first()
-    if (s):
-        print("{}: {}".format(s.id, s.name))
-    else:
-        print("Nothing")
+    lous = State(name="Louisiana")
+    session.add(lous)
+    session.commit()
+    print("{}".format(lous.id))

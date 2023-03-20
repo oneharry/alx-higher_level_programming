@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Module definition of a class State
-    cities of that state
+"""Module deletes all states objects containing letter a
 """
 
 from sqlalchemy import create_engine
@@ -16,8 +15,5 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    s = session.query(State).first()
-    if (s):
-        print("{}: {}".format(s.id, s.name))
-    else:
-        print("Nothing")
+    session.query(State).filter(State.name.contains("a")).delete()
+    session.commit()

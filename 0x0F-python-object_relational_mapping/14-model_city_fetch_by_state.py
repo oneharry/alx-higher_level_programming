@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Module definition of a class State
-    cities of that state
+"""Module deletes all states objects containing letter a
 """
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 from model_state import State
+from model_city import City
 import sys
 
 if __name__ == "__main__":
@@ -16,8 +16,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    s = session.query(State).first()
-    if (s):
-        print("{}: {}".format(s.id, s.name))
-    else:
-        print("Nothing")
+    for c, s in session.query(City, State).filter(City.state_id ==
+                                                  State.id).all():
+        print("{}: ({}) {}".format(s.name, c.id, c.name))

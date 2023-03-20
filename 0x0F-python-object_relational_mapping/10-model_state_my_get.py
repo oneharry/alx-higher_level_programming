@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Module definition of a class State
-    cities of that state
+"""Module prints the state object with name passed as argument
+   from database 
 """
 
 from sqlalchemy import create_engine
@@ -16,8 +16,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    s = session.query(State).first()
+    s = session.query(State).filter(State.name == sys.argv[4]).first()
     if (s):
-        print("{}: {}".format(s.id, s.name))
+        print("{}".format(s.id))
     else:
-        print("Nothing")
+        print("Not found")
