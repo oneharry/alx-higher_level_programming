@@ -14,7 +14,7 @@ if __name__ == "__main__":
                  FROM cities\
                  INNER JOIN states\
                  ON cities.state_id = states.id\
-		 ORDER BY cities.id")
+                 ORDER BY cities.id")
     my_list = []
     for i in curr.fetchall():
         if (i[4] == arg[4]):
