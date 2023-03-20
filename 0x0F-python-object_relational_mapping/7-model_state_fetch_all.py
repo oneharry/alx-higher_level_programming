@@ -4,10 +4,10 @@
 """
 
 from sqlalchemy import create_engine, sessionmaker
-from model_state import Base, State
+from model_state import State
 import sys
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     db_url = "mysql+mysqldb://{}:{}@localhost/{}".format(sys.argv[1],
                                                          sys.argv[2],
                                                          sys.argv[3])
