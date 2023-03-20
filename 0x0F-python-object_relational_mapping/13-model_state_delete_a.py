@@ -15,5 +15,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    session.query(State).filter(State.name.contains("a")).delete()
+    for s in session.query(State).filter(State.name.contains("a")):
+	session.delete(s)
     session.commit()
