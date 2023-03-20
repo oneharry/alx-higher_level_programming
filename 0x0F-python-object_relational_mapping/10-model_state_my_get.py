@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module prints the state object with name passed as argument
-   from database 
+   from database
 """
 
 from sqlalchemy import create_engine
