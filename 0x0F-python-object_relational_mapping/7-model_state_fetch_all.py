@@ -3,7 +3,8 @@
     cities of that state
 """
 
-from sqlalchemy import create_engine, sessionmaker
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from model_state import State
 import sys
 
