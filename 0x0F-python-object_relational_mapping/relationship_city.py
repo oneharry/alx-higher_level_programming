@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+Module defining class City
 """
 
 from sqlalchemy import Column, ForeignKey
