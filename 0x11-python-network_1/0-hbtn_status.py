@@ -5,12 +5,12 @@
 import urllib.request
 if __name__ == '__main__':
     try:
-        url = "https://alx-intranet.hbtn.io/status"
-        with urllib.request.urlopen(url) as res:
+        req = urllib.request.Request("https://alx-intranet.hbtn.io/status")
+        with urllib.request.urlopen(req) as res:
             response = res.read()
             print("Body response:")
             print("\t - {}: {}".format("type", type(response)))
             print("\t - {}: {}".format("content", response))
-            print("\t - {}: {}".format("utf8 content", res.msg))
+            print("\t - utf8 content: {}".format(response.decode('utf-8')))
     except URLError as err:
         pass

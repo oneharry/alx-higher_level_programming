@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Fetches from URL = https://alx-intranet.hbtn.io/status """
+""" Send request to URL = displays X-Request-Id variable in the header response"""
 
 
 import urllib.request
