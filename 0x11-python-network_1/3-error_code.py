@@ -9,7 +9,7 @@ if __name__ == '__main__':
     try:
         req = Request(sys.argv[1])
         with urlopen(req) as res:
-            response = res.read()
-            print("{}".format(res.headers["X-Request-Id"]))
+            print("{}".format(res.read().decode('utf-8')))
     except HTTPError as err:
-        pass
+        if hasattr(err, 'code'):
+            print("Error code: {}".format(err.code))
