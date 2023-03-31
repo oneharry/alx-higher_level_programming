@@ -3,7 +3,6 @@
 
 
 from urllib.request import Request, urlopen
-from urllib.error import HTTPError
 import sys
 if __name__ == '__main__':
     try:
