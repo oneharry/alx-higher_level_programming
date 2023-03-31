@@ -3,13 +3,13 @@
 
 
 from urllib.request import Request, urlopen
-import urllib.parse
+from urllib.parse import urlencode
 import sys
 if __name__ == '__main__':
-    values = {'email' : sys.argv[2]}
-    data = urllib.parse.urlencode(values)
+    values = {'email': sys.argv[2]}
+    data = urlencode(values)
     data = data.encode('ascii')
-    req = Request(sys.argv[1], data)
+    url = sys.argv[1]
+    req = Request(url, data=data)
     with urlopen(req) as res:
-        response = res.read()
-        print("{}".format(response))
+        print("{}".format(res.read().decode('utf-8')))
