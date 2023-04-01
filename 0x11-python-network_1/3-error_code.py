@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Send request to URL = displays X-Request-Id variable in the header response"""
+""" Send request to URL = displays X-Request-Id variable
+in the header response"""
 
 
 from urllib.request import Request, urlopen
