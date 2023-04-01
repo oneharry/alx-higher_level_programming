@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Send POST request to URL with eamail as parameter, displays response body"""
+""" Send POST request to URL with eamail as parameter
+displays response body"""
 
 
 from urllib.request import Request, urlopen
