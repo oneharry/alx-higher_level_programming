@@ -10,13 +10,9 @@ import requests
 if __name__ == '__main__':
     repo = sys.argv[1]
     owner = sys.argv[2]
-    header = {
-        "Accept": "application/vnd.github+json",
-        # "Authorization": "Bearer <YOUR-TOKEN>",
-        "X-GitHub-Api-Version": "2022-11-28",
-    }
-    res = requests.get('https://api.github.com/repos/{owner}/{repo}/commits',
-                       headers=header)
+    res = requests.get("https://api.github.com/repos/{}/{}/commits"
+                       .format(owner, repo))
     r = res.json()
-    print("{}: {}".format(r.get("sha"), r.get("commit").get("author")
-          .get("name")))
+    for i in r[0:10]:
+        print("{}: {}".format(i.get("sha"), i.get("commit").get("author")
+              .get("name")))
