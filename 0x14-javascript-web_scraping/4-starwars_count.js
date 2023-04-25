@@ -4,7 +4,7 @@ const arg = process.argv;
 let num;
 let films;
 let cha;
-if (arg.length) {
+if (arg.length > 1) {
   const url = arg[2];
   request(url, (err, res, body) => {
     if (err) {
