@@ -10,7 +10,7 @@ if (arg.length > 1) {
     const charas = JSON.parse(body).characters;
 
     for (let i = 0; i < charas.length; i++) {
-      ch = charas[i];
+      const ch = charas[i];
       request(ch, (err, res, body) => {
         if (err) {
           console.log(err);
